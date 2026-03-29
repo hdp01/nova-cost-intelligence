@@ -13,7 +13,7 @@ class AWSCollector:
         start = (datetime.now() - timedelta(days=30)).date().isoformat()
         return self.ce.get_cost_and_usage(
             TimePeriod={'Start': start, 'End': end},
-            Granularity='MONTHLY',
+            Granularity='DAILY',
             Metrics=['UnblendedCost'],
             GroupBy=[{'Type': 'DIMENSION', 'Key': 'SERVICE'}]
         )
